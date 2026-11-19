@@ -3,167 +3,283 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#24102f">
-<meta name="description" content="A little romantic question with a big surprise.">
-<title>One Special Question ❤️</title>
+<meta name="theme-color" content="#160d24">
+<title>MOHONA × MoSha — A Little Forever</title>
 <style>
-:root{--pink:#ff69ad;--pink2:#ffc0df;--violet:#a78bfa;--glass:rgba(255,255,255,.105);--line:rgba(255,255,255,.2)}
-*{box-sizing:border-box}
-html{min-height:100%;background:#170b27}
-body{margin:0;min-height:100vh;min-height:100svh;overflow-x:hidden;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
- display:flex;align-items:center;justify-content:center;padding:26px 14px 42px;
- background:radial-gradient(ellipse at 12% 12%,#ff68ad55,transparent 37%),radial-gradient(ellipse at 88% 82%,#806bff55,transparent 40%),radial-gradient(ellipse at 55% 48%,#a13d8050,transparent 55%),linear-gradient(145deg,#10091e,#281039 52%,#42163f)}
-#sky,#particles{position:fixed;inset:0;overflow:hidden;pointer-events:none}
-.glow{position:fixed;inset:-25%;pointer-events:none;filter:blur(75px);opacity:.22;background:conic-gradient(from 20deg,transparent,#ff4f9a,transparent,#8665ff,transparent);animation:aurora 28s linear infinite}
-@keyframes aurora{to{transform:rotate(360deg)}}
-.star{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 9px 2px #fff9;animation:twinkle var(--t) ease-in-out infinite alternate}
-@keyframes twinkle{to{opacity:1;transform:scale(1.7)}}
-.float{position:absolute;bottom:-50px;color:#ffb7d9;text-shadow:0 0 16px #ff4f9a;animation:rise var(--d) linear infinite;animation-delay:var(--delay)}
-@keyframes rise{0%{opacity:0;transform:translateY(0) rotate(0)}12%{opacity:.8}100%{opacity:0;transform:translate(var(--x),-115vh) rotate(330deg)}}
-.card{position:relative;z-index:2;width:min(100%,560px);padding:clamp(23px,5vw,42px);border:1px solid var(--line);border-radius:30px;text-align:center;
- background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.055));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
- box-shadow:0 25px 90px #0006,inset 0 1px #ffffff35}
-.topline{display:flex;justify-content:center;align-items:center;gap:8px;color:#ffd2e7;font-size:11px;letter-spacing:2.6px;font-weight:800;text-transform:uppercase;margin-bottom:18px}
-.pulse-heart{font-size:clamp(54px,13vw,76px);line-height:1.1;margin:0 0 14px;filter:drop-shadow(0 0 18px #ff5caacc);animation:beat 1.35s ease-in-out infinite}
-@keyframes beat{0%,100%{transform:scale(1)}16%{transform:scale(1.13)}32%{transform:scale(1)}47%{transform:scale(1.08)}}
-h1{font-size:clamp(29px,7.5vw,44px);line-height:1.13;letter-spacing:-1.3px;margin:0 0 12px;text-shadow:0 5px 24px #ff60a833}
-.sub{max-width:390px;margin:0 auto;color:#ffffffc9;font-size:14px;line-height:1.7}
-.hints{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin:19px 0 4px}
-.hint-label{width:100%;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#ffd1e6;font-weight:800}
-.hint-chip{padding:7px 14px;border:1px solid #ffc5e35c;border-radius:999px;background:linear-gradient(120deg,#ff8fc32b,#b28aff2b);color:#fff1f8;font-size:13px;font-weight:750;letter-spacing:.5px;box-shadow:inset 0 1px #ffffff20}
-.actions{position:relative;width:min(100%,370px);height:142px;margin:14px auto 0;display:flex;align-items:center;justify-content:center;gap:16px}
-.btn{border:0;border-radius:999px;padding:14px 25px;min-width:122px;min-height:49px;font-size:15px;font-weight:800;cursor:pointer;touch-action:manipulation;transition:transform .18s,box-shadow .18s}
-.btn:active{transform:scale(.95)}
-.yes{position:relative;z-index:2;color:#531538;background:linear-gradient(135deg,#ffe0ef,#ff83bc);box-shadow:0 8px 28px #ff52a066,0 0 0 5px #ffb6d51c}
-.yes:hover{transform:translateY(-3px);box-shadow:0 13px 35px #ff52a099}
-.no{position:absolute;left:calc(50% + 18px);top:50%;transform:translateY(-50%);color:white;background:#ffffff20;border:1px solid #ffffff5c;box-shadow:0 7px 22px #0002;z-index:3}
-.instruction{font-size:11px;color:#ffffff9c;margin:0 0 17px}
-.feature-title{margin:16px 0 9px;color:#ffd5e8;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
-.features{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.feature{min-width:0;min-height:62px;padding:9px 3px;border:1px solid #ffffff25;border-radius:15px;background:#ffffff12;color:#fff;font-size:10px;font-weight:700;cursor:pointer;touch-action:manipulation}
-.feature .ico{display:block;font-size:20px;margin-bottom:4px}
-.feature:active{transform:scale(.95);background:#ffffff25}
-.feature[aria-pressed="true"]{border-color:#ffc3e18c;background:#ff82b52b}
-.status{min-height:15px;margin:10px 0 0;color:#ffffff8a;font-size:10px}
-.hidden{display:none!important}
-.success{animation:enter .65s cubic-bezier(.2,.8,.2,1) both}
-@keyframes enter{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-.success .pulse-heart{font-size:66px}
-.love-note{margin:18px auto 0;padding:17px 16px;max-width:410px;border:1px solid #ffffff29;border-radius:19px;background:#ffffff12;color:#ffe9f3;font-size:14px;line-height:1.8}
-.success-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:19px}
-.secondary{color:#fff;background:#ffffff1a;border:1px solid #ffffff38}
-#confetti{position:fixed;inset:0;z-index:5;overflow:hidden;pointer-events:none}
-.confetti{position:absolute;top:-20px;width:9px;height:14px;border-radius:2px;animation:fall var(--fall) linear forwards}
-@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(900deg);opacity:.8}}
-.toast{position:fixed;z-index:10;left:50%;bottom:18px;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:11px 17px;border:1px solid #ffffff35;border-radius:99px;background:#271433eF;color:#fff;font-size:12px;box-shadow:0 8px 28px #0005;transition:.25s;white-space:nowrap}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-body.theme-ocean{background:radial-gradient(ellipse at 10% 15%,#56d8ff66,transparent 38%),radial-gradient(ellipse at 90% 85%,#6f7cff66,transparent 40%),linear-gradient(145deg,#07172f,#153c67 55%,#30275d)}
-body.theme-sunset{background:radial-gradient(ellipse at 10% 15%,#ffb15e66,transparent 38%),radial-gradient(ellipse at 90% 85%,#ff4f9166,transparent 40%),linear-gradient(145deg,#311020,#823451 55%,#44205c)}
-@media(max-width:430px){
- body{padding:15px 11px 35px;align-items:center}
- .card{padding:25px 17px 20px;border-radius:25px}
- .topline{font-size:10px;margin-bottom:13px}
- .sub{font-size:13px}
- .hints{margin-top:16px}
- .actions{height:126px;gap:10px;margin-top:10px}
- .btn{min-width:112px;padding:13px 19px;font-size:14px}
- .no{left:calc(50% + 10px)}
- .features{gap:6px}
- .feature{min-height:59px;font-size:9px;border-radius:13px}
- .feature .ico{font-size:19px}
- .feature-title{margin-top:12px}
+/* Handmade, framework-free mobile-first experience */
+:root{
+  --bg:#160d24;--ink:#fff8fc;--muted:#d9c6d7;--pink:#ff79b7;--rose:#ffb6d7;
+  --lilac:#b7a0ff;--line:#ffffff25;--glass:#ffffff10;--safe-bottom:env(safe-area-inset-bottom,0px);
 }
-@media(max-height:700px){body{align-items:flex-start}.card{margin:auto 0}.pulse-heart{font-size:52px}.topline{margin-bottom:10px}.hints{margin-top:12px}.actions{height:112px}.feature-title{margin-top:8px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--bg);scroll-behavior:smooth}
+body{margin:0;min-height:100vh;min-height:100svh;color:var(--ink);font-family:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI",sans-serif;
+ background:radial-gradient(ellipse at 4% 4%,#ff5d9d35,transparent 34%),radial-gradient(ellipse at 96% 70%,#8c6cff35,transparent 38%),linear-gradient(155deg,#160d24,#28132f 58%,#32172f);
+ overflow-x:hidden}
+button{font:inherit}
+button:focus-visible{outline:3px solid #ffe0ef;outline-offset:3px}
+#ambient{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.orb{position:absolute;width:55vw;height:55vw;max-width:480px;max-height:480px;border-radius:50%;filter:blur(75px);opacity:.16;animation:drift 19s ease-in-out infinite alternate}
+.orb.one{background:#ff5eaa;left:-23vw;top:-15vw}
+.orb.two{background:#8d70ff;right:-25vw;bottom:-20vw;animation-delay:-8s}
+@keyframes drift{to{transform:translate(10vw,8vh) scale(1.2)}}
+.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 9px #fff;animation:blink var(--speed) ease-in-out infinite alternate}
+@keyframes blink{to{opacity:.15;transform:scale(.5)}}
+.float-heart{position:absolute;bottom:-45px;color:#ffb6d8;text-shadow:0 0 16px #ff4e9f;animation:floatUp var(--duration) linear infinite;animation-delay:var(--delay)}
+@keyframes floatUp{12%{opacity:.8}100%{transform:translate(var(--drift),-115vh) rotate(300deg);opacity:0}}
+.app{position:relative;z-index:1;width:min(100%,720px);min-height:100vh;min-height:100svh;margin:auto;padding:0 16px calc(106px + var(--safe-bottom))}
+.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:.3px}
+.brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#ff91c4,#a88cff);box-shadow:0 7px 22px #ff5d9d35;font-size:19px}
+.brand small{display:block;color:#d8b8d0;font-size:10px;letter-spacing:2px;font-weight:700;margin-top:2px}
+.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:15px;background:#ffffff10;color:white;font-size:18px;cursor:pointer}
+.page{display:none;animation:pageIn .42s cubic-bezier(.2,.8,.2,1) both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:30px;padding:26px 20px 23px;text-align:center;background:linear-gradient(145deg,#ffffff19,#ffffff07);box-shadow:0 24px 70px #0003,inset 0 1px #ffffff20}
+.hero:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff13;border-radius:50%;left:50%;top:-145px;transform:translateX(-50%);box-shadow:0 0 0 22px #ffffff08,0 0 0 46px #ffffff05}
+.kicker{position:relative;margin:0 0 15px;color:#ffd2e6;font-size:10px;font-weight:900;letter-spacing:2.8px;text-transform:uppercase}
+.hero-art{position:relative;width:124px;height:124px;margin:0 auto 16px;display:grid;place-items:center}
+.ring{position:absolute;inset:0;border:1px solid #ffb4d66b;border-radius:39% 61% 56% 44%/45% 42% 58% 55%;transform:rotate(-18deg);animation:rotate 14s linear infinite}
+.ring:before,.ring:after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:#ffe1f0;box-shadow:0 0 14px #ff79b7}
+.ring:before{left:12px;top:20px}.ring:after{right:10px;bottom:15px}
+@keyframes rotate{to{transform:rotate(342deg)}}
+.big-heart{font-size:67px;filter:drop-shadow(0 0 18px #ff4e9f);animation:heartbeat 1.4s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}18%{transform:scale(1.12)}34%{transform:scale(1)}48%{transform:scale(1.07)}}
+h1{position:relative;margin:0 auto 11px;font-size:clamp(30px,8vw,46px);line-height:1.08;letter-spacing:-1.6px}
+.gradient-text{background:linear-gradient(90deg,#fff,#ffc3df 48%,#d6c7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:440px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.75}
+.hint-area{margin:20px auto 0;max-width:390px;padding:14px;border-radius:20px;border:1px dashed #ffc2df70;background:#ff9bc40d}
+.hint-caption{display:block;margin-bottom:9px;color:#ffcce2;font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.hint-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
+.hint-chip{padding:8px 16px;border-radius:999px;background:linear-gradient(120deg,#ff86b72b,#ad91ff2b);border:1px solid #ffc5e35c;color:#fff;font-size:13px;font-weight:850;letter-spacing:.6px;box-shadow:inset 0 1px #ffffff20}
+.answer-zone{height:118px;max-width:340px;margin:12px auto 0;position:relative;display:flex;align-items:center;justify-content:center;gap:15px}
+.btn{border:0;border-radius:999px;min-height:48px;padding:13px 23px;font-size:14px;font-weight:900;cursor:pointer;touch-action:manipulation;transition:transform .18s,box-shadow .18s}
+.btn:active{transform:scale(.96)}
+.primary{color:#531538;background:linear-gradient(135deg,#ffe4f0,#ff83bb);box-shadow:0 8px 24px #ff5a9d55,0 0 0 5px #ffb6d51c}
+.primary:hover{box-shadow:0 12px 30px #ff5a9d80}
+.no-btn{position:absolute;left:calc(50% + 16px);top:50%;transform:translateY(-50%);color:white;background:#ffffff18;border:1px solid #ffffff4a;z-index:3}
+.microcopy{font-size:10px;color:#ffffff80;margin:0}
+.section-head{margin:25px 4px 13px;display:flex;justify-content:space-between;align-items:end}
+.section-head h2{margin:0;font-size:19px;letter-spacing:-.4px}
+.section-head span{color:#d9bfd4;font-size:10px}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.quick-card{min-height:93px;text-align:left;padding:13px 11px;border-radius:19px;border:1px solid var(--line);background:linear-gradient(145deg,#ffffff15,#ffffff08);color:#fff;cursor:pointer}
+.quick-card b{display:block;font-size:12px;margin-top:9px}
+.quick-card small{display:block;color:#d9c6d7;font-size:9px;margin-top:3px}
+.quick-card .emoji{font-size:22px}
+.panel{padding:22px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,#ffffff17,#ffffff08);box-shadow:0 18px 55px #0002}
+.page-title{margin:7px 0 8px;font-size:clamp(27px,7vw,38px);letter-spacing:-1px}
+.page-lead{margin:0 0 20px;color:var(--muted);font-size:13px;line-height:1.7}
+.story-list{display:grid;gap:12px}
+.story-item{display:grid;grid-template-columns:43px 1fr;gap:12px;align-items:start;padding:14px;border-radius:18px;background:#ffffff0c;border:1px solid #ffffff17}
+.story-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:#ff8dbb24;font-size:20px}
+.story-item h3{margin:1px 0 5px;font-size:14px}
+.story-item p{margin:0;color:#d9c6d7;font-size:12px;line-height:1.6}
+.promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.promise{min-height:112px;padding:15px;border-radius:18px;background:#ffffff0e;border:1px solid #ffffff20}
+.promise span{font-size:23px}.promise h3{margin:8px 0 5px;font-size:13px}.promise p{margin:0;color:#d9c6d7;font-size:11px;line-height:1.5}
+.note-card{padding:22px;border-radius:22px;background:linear-gradient(135deg,#ff9ac42a,#a88cff24);border:1px solid #ffc9e344}
+.note-card p{font-size:14px;line-height:1.9;color:#fff0f7;margin:0}
+.note-sign{margin-top:15px;color:#ffc4df;font-size:12px;font-weight:900;letter-spacing:1px}
+.action-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+.soft{color:white;background:#ffffff14;border:1px solid var(--line)}
+.wide{width:100%}
+.bottom-nav{position:fixed;z-index:8;bottom:calc(10px + var(--safe-bottom));left:50%;transform:translateX(-50%);width:min(calc(100% - 22px),520px);padding:8px;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;border:1px solid #ffffff2b;border-radius:22px;background:#21142beF;backdrop-filter:blur(22px);box-shadow:0 12px 45px #0006}
+.nav-btn{min-width:0;border:0;border-radius:15px;background:transparent;color:#cbb9cf;padding:8px 2px 7px;font-size:9px;font-weight:750;cursor:pointer}
+.nav-btn span{display:block;font-size:19px;margin-bottom:4px}
+.nav-btn.active{background:linear-gradient(145deg,#ff8dbb35,#a58aff2b);color:#fff}
+.toast{position:fixed;z-index:15;left:50%;bottom:calc(92px + var(--safe-bottom));transform:translate(-50%,15px);opacity:0;pointer-events:none;padding:11px 16px;border-radius:999px;border:1px solid #ffffff35;background:#25142ff2;color:#fff;font-size:11px;white-space:nowrap;box-shadow:0 8px 30px #0005;transition:.25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+#confetti{position:fixed;inset:0;z-index:12;pointer-events:none;overflow:hidden}
+.confetti-piece{position:absolute;top:-18px;width:8px;height:13px;border-radius:2px;animation:confettiFall var(--fall) linear forwards}
+@keyframes confettiFall{to{transform:translate(var(--drift),110vh) rotate(800deg);opacity:.7}}
+.modal-backdrop{display:none;position:fixed;inset:0;z-index:20;background:#090611b8;backdrop-filter:blur(9px);align-items:center;justify-content:center;padding:20px}
+.modal-backdrop.open{display:flex}
+.modal{width:min(100%,390px);padding:24px;border:1px solid #ffffff35;border-radius:25px;background:linear-gradient(145deg,#442345,#261737);box-shadow:0 25px 80px #0008;text-align:center;animation:pageIn .25s ease}
+.modal h2{margin:0 0 10px;font-size:22px}.modal p{color:#e7d4e2;font-size:13px;line-height:1.75}
+.modal .btn{margin-top:12px}
+body.ocean{background:radial-gradient(ellipse at 5% 5%,#56d8ff55,transparent 35%),radial-gradient(ellipse at 95% 75%,#777bff55,transparent 40%),linear-gradient(155deg,#07172e,#163c65 60%,#2c2558)}
+body.sunset{background:radial-gradient(ellipse at 5% 5%,#ffb15e55,transparent 35%),radial-gradient(ellipse at 95% 75%,#ff4f9155,transparent 40%),linear-gradient(155deg,#311020,#823451 60%,#44205c)}
+body.still *,body.still *:before,body.still *:after{animation-play-state:paused!important}
+@media(min-width:650px){.app{padding-top:12px}.hero{padding:38px}.page-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}.quick-grid{grid-template-columns:1fr}.hero-art{width:145px;height:145px}.big-heart{font-size:78px}}
+@media(max-width:380px){.app{padding-left:11px;padding-right:11px}.hero{padding:23px 14px 20px}.quick-grid{gap:6px}.quick-card{padding:11px 8px}.nav-btn{font-size:8px}.nav-btn span{font-size:18px}.hint-chip{padding:7px 13px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="glow"></div><div id="sky" aria-hidden="true"></div><div id="particles" aria-hidden="true"></div><div id="confetti"></div>
-<main class="card">
-<section id="question">
- <div class="topline">✦ A little question for you ✦</div>
- <div class="pulse-heart" aria-hidden="true">💍</div>
- <h1>Will you marry me?</h1>
- <p class="sub">I have a little question hidden inside this heart.<br>One answer could make this moment magical. ❤️</p>
- <div class="hints" aria-label="Secret hints">
-  <span class="hint-label">Your secret hints ✨</span>
-  <span class="hint-chip">Mohona</span>
-  <span class="hint-chip">MoSha</span>
+<div id="ambient"><div class="orb one"></div><div class="orb two"></div></div>
+<div id="confetti"></div>
+<div class="app">
+<header class="topbar">
+ <div class="brand"><div class="brand-mark">♡</div><div>MOHONA <small>× MoSha · OUR LITTLE WORLD</small></div></div>
+ <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
+</header>
+
+<!-- HOME -->
+<section class="page active" id="page-home">
+ <div class="hero">
+  <p class="kicker">✦ a question from the heart ✦</p>
+  <div class="hero-art"><div class="ring"></div><div class="big-heart">💍</div></div>
+  <h1 class="gradient-text">Will you marry me?</h1>
+  <p class="lead">Some questions are small, but the feelings behind them are infinite. This little page is made for one very special person. ❤️</p>
+  <div class="hint-area"><span class="hint-caption">✧ two little secret hints ✧</span><div class="hint-row"><span class="hint-chip">Mohona</span><span class="hint-chip">MoSha</span></div></div>
+  <div class="answer-zone" id="answerZone">
+   <button class="btn primary" id="yesBtn">YES, I DO 💖</button>
+   <button class="btn no-btn" id="noBtn">NO 🙈</button>
+  </div>
+  <p class="microcopy">Psst… can you catch the NO button? 😉</p>
  </div>
- <div class="actions" id="playArea">
-  <button class="btn yes" id="yesBtn" type="button">YES 💖</button>
-  <button class="btn no" id="noBtn" type="button">NO 🙈</button>
+ <div class="section-head"><h2>A few little surprises</h2><span>MADE WITH ♡</span></div>
+ <div class="quick-grid">
+  <button class="quick-card" data-page="story"><span class="emoji">📖</span><b>Our story</b><small>A tiny timeline</small></button>
+  <button class="quick-card" data-page="promises"><span class="emoji">🤞</span><b>Little promises</b><small>From the heart</small></button>
+  <button class="quick-card" data-page="letter"><span class="emoji">💌</span><b>Secret letter</b><small>Open when ready</small></button>
  </div>
- <p class="instruction">Try to catch the “NO”… if you can! 😉</p>
- <div class="feature-title">Little extra magic · Made for mobile</div>
- <div class="features">
-  <button class="feature" id="soundBtn" type="button" aria-pressed="false"><span class="ico">🔇</span>Sound</button>
-  <button class="feature" id="vibrateBtn" type="button" aria-pressed="false"><span class="ico">📳</span>Vibration</button>
-  <button class="feature" id="themeBtn" type="button"><span class="ico">🎨</span>Change look</button>
-  <button class="feature" id="fullBtn" type="button"><span class="ico">⛶</span>Full screen</button>
-  <button class="feature" id="shareBtn" type="button"><span class="ico">↗️</span>Share</button>
-  <button class="feature" id="letterBtn" type="button"><span class="ico">💌</span>Secret note</button>
-  <button class="feature" id="sparkBtn" type="button"><span class="ico">✨</span>Magic burst</button>
-  <button class="feature" id="motionBtn" type="button" aria-pressed="true"><span class="ico">🌌</span>Motion</button>
- </div>
- <p class="status" id="status" aria-live="polite">Tip: tap the screen for a little sparkle ✨</p>
 </section>
 
-<section id="success" class="success hidden">
- <div class="topline">✦ The answer we were waiting for ✦</div>
- <div class="pulse-heart">🥹💖</div>
- <p class="eyebrow">A beautiful new beginning</p>
- <h1>YOU SAID YES! ❤️</h1>
- <p class="sub">This little moment just became a forever memory.</p>
- <div class="love-note">Dear <strong>Mohona</strong>,<br>may our story be full of laughter, kindness, little adventures and a thousand reasons to smile.<br><strong>Forever starts with this YES! 💍</strong><br><span style="color:#ffc3df">MoSha ✨</span></div>
- <div class="success-actions">
-  <button class="btn yes" id="celebrateBtn" type="button">Celebrate again 🎉</button>
-  <button class="btn secondary" id="shareYesBtn" type="button">Share the moment ↗</button>
-  <button class="btn secondary" id="replayBtn" type="button">Replay ↻</button>
+<!-- STORY -->
+<section class="page" id="page-story">
+ <div class="panel">
+  <p class="kicker">✦ chapter one · us ✦</p><h1 class="page-title">Our little story</h1>
+  <p class="page-lead">Every beautiful story is made of little moments. Here are a few chapters waiting for their memories.</p>
+  <div class="story-list">
+   <article class="story-item"><div class="story-icon">🌷</div><div><h3>The first hello</h3><p>One simple hello can become the beginning of a thousand beautiful conversations.</p></div></article>
+   <article class="story-item"><div class="story-icon">✨</div><div><h3>The little moments</h3><p>The smiles, the silly jokes, the tiny things that make an ordinary day feel special.</p></div></article>
+   <article class="story-item"><div class="story-icon">🌙</div><div><h3>Dreaming ahead</h3><p>More memories to make, places to see, and reasons to choose each other every day.</p></div></article>
+   <article class="story-item"><div class="story-icon">💍</div><div><h3>Our next chapter</h3><p>Maybe this is where a beautiful new chapter begins. The next page is ours to write.</p></div></article>
+  </div>
+  <div class="action-row"><button class="btn primary wide" data-page="promises">Read our promises →</button></div>
  </div>
 </section>
-</main>
+
+<!-- PROMISES -->
+<section class="page" id="page-promises">
+ <div class="panel">
+  <p class="kicker">✦ little things that matter ✦</p><h1 class="page-title">My promises to you</h1>
+  <p class="page-lead">Not just big words. The little things that make love feel safe, kind and real.</p>
+  <div class="promise-grid">
+   <article class="promise"><span>🌻</span><h3>Choose kindness</h3><p>Even on difficult days, speak with care and respect.</p></article>
+   <article class="promise"><span>🤝</span><h3>Stay a team</h3><p>Listen, understand and face life's twists side by side.</p></article>
+   <article class="promise"><span>😂</span><h3>Keep laughing</h3><p>Find joy in silly jokes and ordinary little moments.</p></article>
+   <article class="promise"><span>🌱</span><h3>Grow together</h3><p>Make room for dreams, change and becoming better.</p></article>
+   <article class="promise"><span>💗</span><h3>Show up</h3><p>Make time, be present and never take the little things for granted.</p></article>
+   <article class="promise"><span>🏡</span><h3>Build a home</h3><p>Create a place where both hearts feel understood.</p></article>
+  </div>
+  <div class="action-row"><button class="btn primary wide" data-page="letter">Open the secret letter →</button></div>
+ </div>
+</section>
+
+<!-- LETTER -->
+<section class="page" id="page-letter">
+ <div class="panel">
+  <p class="kicker">✦ sealed with love ✦</p><h1 class="page-title">A little letter</h1>
+  <p class="page-lead">A few words, from the heart.</p>
+  <div class="note-card">
+   <p>Dear <strong>Mohona</strong>,<br><br>Some people make the world feel a little brighter just by being in it. You are one of those people. I hope we keep collecting tiny happy moments, supporting each other's dreams and finding new reasons to smile.<br><br>Whatever the next chapter brings, may it be filled with honesty, laughter, patience and care.<br><br><strong>With lots of love,</strong></p>
+   <div class="note-sign">MoSha ♡</div>
+  </div>
+  <div class="action-row"><button class="btn primary wide" id="copyLetter">Copy this letter ♡</button></div>
+ </div>
+</section>
+
+<!-- YES RESULT -->
+<section class="page" id="page-yes">
+ <div class="hero">
+  <p class="kicker">✦ a new chapter begins ✦</p>
+  <div class="hero-art"><div class="ring"></div><div class="big-heart">🥹💖</div></div>
+  <h1 class="gradient-text">YOU SAID YES!</h1>
+  <p class="lead">This little moment just became a memory to keep. Here's to kindness, laughter and a beautiful journey ahead.</p>
+  <div class="note-card" style="margin-top:20px"><p>Dear <strong>Mohona</strong>,<br>may our story be full of laughter, patience, adventures and a thousand reasons to smile.<br><br><strong>Forever starts with this YES! 💍</strong></p><div class="note-sign">MoSha ✨</div></div>
+  <div class="action-row" style="justify-content:center"><button class="btn primary" id="celebrateBtn">Celebrate 🎉</button><button class="btn soft" id="shareBtn">Share ↗</button></div>
+  <button class="btn soft wide" style="margin-top:10px" data-page="home">Back to home</button>
+ </div>
+</section>
+
+<!-- SETTINGS -->
+<section class="page" id="page-settings">
+ <div class="panel">
+  <p class="kicker">✦ make it yours ✦</p><h1 class="page-title">Little settings</h1>
+  <p class="page-lead">Choose how this little world feels on your phone.</p>
+  <div class="story-list">
+   <article class="story-item"><div class="story-icon">🎨</div><div style="flex:1"><h3>Change the theme</h3><p>Switch between romantic colour moods.</p><button class="btn soft" id="themeBtn" style="margin-top:9px">Change theme</button></div></article>
+   <article class="story-item"><div class="story-icon">✨</div><div style="flex:1"><h3>Motion effects</h3><p>Turn background animation on or off.</p><button class="btn soft" id="motionBtn" style="margin-top:9px">Pause motion</button></div></article>
+   <article class="story-item"><div class="story-icon">📳</div><div style="flex:1"><h3>Phone vibration</h3><p>Enable a small vibration on supported phones.</p><button class="btn soft" id="vibrateBtn" style="margin-top:9px">Vibration: Off</button></div></article>
+   <article class="story-item"><div class="story-icon">⛶</div><div style="flex:1"><h3>Full screen</h3><p>Enjoy a more immersive view.</p><button class="btn soft" id="fullBtn" style="margin-top:9px">Enter fullscreen</button></div></article>
+   <article class="story-item"><div class="story-icon">↗️</div><div style="flex:1"><h3>Share this page</h3><p>Send this little surprise to someone special.</p><button class="btn soft" id="shareSettings">Share website</button></div></article>
+  </div>
+ </div>
+</section>
+</div>
+
+<nav class="bottom-nav" aria-label="Main navigation">
+ <button class="nav-btn active" data-page="home"><span>♡</span>Home</button>
+ <button class="nav-btn" data-page="story"><span>📖</span>Story</button>
+ <button class="nav-btn" data-page="promises"><span>🤞</span>Promises</button>
+ <button class="nav-btn" data-page="letter"><span>💌</span>Letter</button>
+ <button class="nav-btn" data-page="settings"><span>⚙</span>More</button>
+</nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 (()=>{
-const $=id=>document.getElementById(id);
-const sky=$('sky'),particles=$('particles'),area=$('playArea'),no=$('noBtn'),yes=$('yesBtn'),question=$('question'),success=$('success'),confetti=$('confetti'),status=$('status'),toast=$('toast');
-let soundOn=false,vibrateOn=false,motionOn=true,theme=0,audioCtx=null,toastTimer;
-const themes=['','theme-ocean','theme-sunset'];
-function say(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200);status.textContent=message}
-for(let i=0;i<85;i++){const s=document.createElement('i');s.className='star';const z=1+Math.random()*2.5;s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;--t:${1.2+Math.random()*3}s;animation-delay:${-Math.random()*4}s`;sky.appendChild(s)}
-for(let i=0;i<18;i++){const h=document.createElement('i');h.className='float';h.textContent=Math.random()>.5?'♥':'♡';h.style.cssText=`left:${Math.random()*100}%;font-size:${12+Math.random()*23}px;--d:${9+Math.random()*12}s;--delay:${-Math.random()*20}s;--x:${-55+Math.random()*110}px`;particles.appendChild(h)}
-function beep(freq=660,duration=.12){if(!soundOn)return;try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.09,audioCtx.currentTime+.015);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration)}catch(e){}}
-function buzz(pattern=35){if(vibrateOn&&navigator.vibrate)navigator.vibrate(pattern)}
-function dodge(){
- const a=area.getBoundingClientRect(),b=no.getBoundingClientRect(),y=yes.getBoundingClientRect(),pad=3;
- const maxX=Math.max(pad,a.width-b.width-pad),maxY=Math.max(pad,a.height-b.height-pad);let x=pad,top=pad;
- for(let n=0;n<60;n++){x=pad+Math.random()*Math.max(0,maxX-pad);top=pad+Math.random()*Math.max(0,maxY-pad);const c={left:a.left+x,right:a.left+x+b.width,top:a.top+top,bottom:a.top+top+b.height};if(c.right<y.left-10||c.left>y.right+10||c.bottom<y.top-10||c.top>y.bottom+10)break}
- no.style.left=x+'px';no.style.top=top+'px';no.style.transform='none';beep(280,.07);buzz(18);
-}
-no.addEventListener('pointerenter',dodge);
-no.addEventListener('pointerdown',e=>{e.preventDefault();dodge()});
-no.addEventListener('touchstart',e=>{e.preventDefault();dodge()},{passive:false});
-no.addEventListener('click',e=>{e.preventDefault();dodge()});
-area.addEventListener('pointermove',e=>{const r=no.getBoundingClientRect();if(Math.hypot(e.clientX-r.left-r.width/2,e.clientY-r.top-r.height/2)<65)dodge()});
-function burst(x=innerWidth/2,y=innerHeight/2,count=55){const colors=['#ff70b7','#ffd166','#fff','#b69cff','#ff9fba','#9df5ff'];for(let i=0;i<count;i++){const p=document.createElement('i');p.className='confetti';p.style.left=x+'px';p.style.top=y+'px';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.setProperty('--fall',2+Math.random()*2.5+'s');p.style.setProperty('--drift',(-innerWidth/2+Math.random()*innerWidth)+'px');p.style.animationDelay=Math.random()*.25+'s';confetti.appendChild(p)}setTimeout(()=>confetti.replaceChildren(),5200);beep(740,.2);buzz([25,35,25])}
-function celebrate(){burst(innerWidth/2,innerHeight*.15,115);setTimeout(()=>burst(innerWidth*.25,innerHeight*.22,45),300);setTimeout(()=>burst(innerWidth*.75,innerHeight*.22,45),550)}
-yes.addEventListener('click',()=>{question.classList.add('hidden');success.classList.remove('hidden');celebrate();say('A new chapter begins! ❤️')});
-$('replayBtn').addEventListener('click',()=>{success.classList.add('hidden');question.classList.remove('hidden');resetNo();confetti.replaceChildren();say('Ready for the question again? 💗')});
-$('celebrateBtn').addEventListener('click',celebrate);
-function resetNo(){no.style.left='calc(50% + 18px)';no.style.top='50%';no.style.transform='translateY(-50%)'}
-window.addEventListener('resize',()=>{if(!question.classList.contains('hidden'))resetNo()});
-$('soundBtn').addEventListener('click',()=>{soundOn=!soundOn;$('soundBtn').setAttribute('aria-pressed',soundOn);$('soundBtn').querySelector('.ico').textContent=soundOn?'🔊':'🔇';say(soundOn?'Sound effects on':'Sound effects off');if(soundOn)beep(660,.18)});
-$('vibrateBtn').addEventListener('click',()=>{if(!navigator.vibrate){say('Vibration is not supported by this browser');return}vibrateOn=!vibrateOn;$('vibrateBtn').setAttribute('aria-pressed',vibrateOn);say(vibrateOn?'Vibration on':'Vibration off');buzz([35,45,35])});
-$('themeBtn').addEventListener('click',()=>{document.body.classList.remove(...themes.filter(Boolean));theme=(theme+1)%themes.length;if(themes[theme])document.body.classList.add(themes[theme]);say(['Pink-purple dream 💗','Ocean sparkle 🌊','Sunset romance 🌅'][theme])});
-$('fullBtn').addEventListener('click',async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();say(document.fullscreenElement?'Fullscreen on':'Fullscreen closed')}catch(e){say('Fullscreen is not available in this browser')}});
-async function share(){const data={title:'One Special Question ❤️',text:'Someone has a special question for you… 💍',url:location.href};try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard){await navigator.clipboard.writeText(location.href);say('Website link copied!')}else say('Use your browser menu to share this page')}catch(e){if(e.name!=='AbortError')say('Sharing is not available here')}}
-$('shareBtn').addEventListener('click',share);$('shareYesBtn').addEventListener('click',share);
-$('letterBtn').addEventListener('click',()=>say('Secret hint: Mohona + MoSha = a sweet story 💌'));
-$('sparkBtn').addEventListener('click',()=>{burst(innerWidth/2,innerHeight/2,75);say('Magic everywhere! ✨')});
-$('motionBtn').addEventListener('click',()=>{motionOn=!motionOn;document.body.classList.toggle('still',!motionOn);$('motionBtn').setAttribute('aria-pressed',motionOn);$('motionBtn').querySelector('.ico').textContent=motionOn?'🌌':'⏸️';sky.style.display=motionOn?'block':'none';particles.style.display=motionOn?'block':'none';document.querySelector('.glow').style.animationPlayState=motionOn?'running':'paused';say(motionOn?'Animations on':'Animations paused')});
-document.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;const p=document.createElement('span');p.textContent='✦';p.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;color:#ffd1e7;font-size:25px;z-index:8;pointer-events:none;text-shadow:0 0 15px #ff69ad;animation:tapSpark .8s ease-out forwards`;document.body.appendChild(p);setTimeout(()=>p.remove(),850)});
-const style=document.createElement('style');style.textContent='@keyframes tapSpark{to{transform:translateY(-35px) scale(1.8);opacity:0}}';document.head.appendChild(style);
+ const $=id=>document.getElementById(id);
+ const pages=['home','story','promises','letter','yes','settings'];
+ let current='home',theme=0,motion=true,vibrate=false,toastTimer;
+ const themes=['','ocean','sunset'];
+ function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2300)}
+ function go(page){
+  if(!pages.includes(page))return;
+  current=page;
+  pages.forEach(p=>$('page-'+p).classList.toggle('active',p===page));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(page==='yes')celebrate();
+ }
+ document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+ $('settingsBtn').addEventListener('click',()=>go('settings'));
+ // Soft, floating stars and hearts
+ const ambient=$('ambient');
+ for(let i=0;i<85;i++){let s=document.createElement('i');s.className='spark';let z=1+Math.random()*2.4;s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;--speed:${1+Math.random()*3}s;animation-delay:${-Math.random()*4}s`;ambient.appendChild(s)}
+ for(let i=0;i<19;i++){let h=document.createElement('i');h.className='float-heart';h.textContent=Math.random()>.5?'♥':'♡';h.style.cssText=`left:${Math.random()*100}%;font-size:${12+Math.random()*22}px;--duration:${9+Math.random()*12}s;--delay:${-Math.random()*20}s;--drift:${-55+Math.random()*110}px`;ambient.appendChild(h)}
+ // The playful NO button dodges touch, mouse and pointer approaches.
+ const no=$('noBtn'),zone=$('answerZone'),yes=$('yesBtn');
+ function dodge(){
+  const a=zone.getBoundingClientRect(),b=no.getBoundingClientRect(),y=yes.getBoundingClientRect(),pad=3;
+  const maxX=Math.max(pad,a.width-b.width-pad),maxY=Math.max(pad,a.height-b.height-pad);let x=pad,t=pad;
+  for(let n=0;n<60;n++){x=pad+Math.random()*Math.max(0,maxX-pad);t=pad+Math.random()*Math.max(0,maxY-pad);let c={left:a.left+x,right:a.left+x+b.width,top:a.top+t,bottom:a.top+t+b.height};if(c.right<y.left-8||c.left>y.right+8||c.bottom<y.top-8||c.top>y.bottom+8)break}
+  no.style.left=x+'px';no.style.top=t+'px';no.style.transform='none';if(vibrate&&navigator.vibrate)navigator.vibrate(18);
+ }
+ no.addEventListener('pointerenter',dodge);
+ no.addEventListener('pointerdown',e=>{e.preventDefault();dodge()});
+ no.addEventListener('touchstart',e=>{e.preventDefault();dodge()},{passive:false});
+ no.addEventListener('click',e=>{e.preventDefault();dodge()});
+ zone.addEventListener('pointermove',e=>{let r=no.getBoundingClientRect();if(Math.hypot(e.clientX-r.left-r.width/2,e.clientY-r.top-r.height/2)<66)dodge()});
+ window.addEventListener('resize',()=>{if(current==='home'){no.style.left='calc(50% + 16px)';no.style.top='50%';no.style.transform='translateY(-50%)'}});
+ // Celebration confetti
+ function celebrate(){
+  const box=$('confetti');box.replaceChildren();const colours=['#ff75b5','#ffd47a','#fff','#b6a0ff','#ffb4d6'];
+  for(let i=0;i<115;i++){let p=document.createElement('i');p.className='confetti-piece';p.style.left=Math.random()*100+'%';p.style.background=colours[Math.floor(Math.random()*colours.length)];p.style.setProperty('--fall',2.5+Math.random()*3+'s');p.style.setProperty('--drift',(-innerWidth/2+Math.random()*innerWidth)+'px');p.style.animationDelay=Math.random()*.6+'s';box.appendChild(p)}
+  setTimeout(()=>box.replaceChildren(),6500);
+  if(vibrate&&navigator.vibrate)navigator.vibrate([35,45,35]);
+ }
+ yes.addEventListener('click',()=>go('yes'));
+ $('celebrateBtn').addEventListener('click',celebrate);
+ // Letter copy action
+ $('copyLetter').addEventListener('click',async()=>{
+  const text='Dear Mohona,\\n\\nSome people make the world feel a little brighter just by being in it. You are one of those people. I hope we keep collecting tiny happy moments, supporting each other\\'s dreams and finding new reasons to smile.\\n\\nWhatever the next chapter brings, may it be filled with honesty, laughter, patience and care.\\n\\nWith lots of love,\\nMoSha ♡';
+  try{await navigator.clipboard.writeText(text);toast('Letter copied to clipboard ♡')}catch(e){toast('Copy is not supported in this browser')}
+ });
+ function changeTheme(){document.body.classList.remove(...themes.filter(Boolean));theme=(theme+1)%themes.length;if(themes[theme])document.body.classList.add(themes[theme]);toast(['Rose galaxy 💗','Ocean dream 🌊','Sunset glow 🌅'][theme])}
+ $('themeBtn').addEventListener('click',changeTheme);
+ $('motionBtn').addEventListener('click',()=>{motion=!motion;document.body.classList.toggle('still',!motion);$('motionBtn').textContent=motion?'Pause motion':'Resume motion';toast(motion?'Motion resumed':'Motion paused')});
+ $('vibrateBtn').addEventListener('click',()=>{if(!navigator.vibrate){toast('Vibration is not supported on this device');return}vibrate=!vibrate;$('vibrateBtn').textContent='Vibration: '+(vibrate?'On':'Off');if(vibrate)navigator.vibrate(35);toast('Vibration '+(vibrate?'enabled':'disabled'))});
+ async function fullscreen(){try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();$('fullBtn').textContent=document.fullscreenElement?'Exit fullscreen':'Enter fullscreen'}catch(e){toast('Fullscreen is not available here')}}
+ $('fullBtn').addEventListener('click',fullscreen);
+ async function share(){let data={title:'MOHONA × MoSha — A Little Forever',text:'A little surprise made with love ❤️',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);toast('Website link copied!')}}catch(e){if(e.name!=='AbortError')toast('Sharing is not available in this browser')}}
+ $('shareBtn').addEventListener('click',share);$('shareSettings').addEventListener('click',share);
+ // Make the heart sparkle when the background is tapped.
+ document.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;let s=document.createElement('span');s.textContent='✦';s.style.cssText=`position:fixed;z-index:10;pointer-events:none;left:${e.clientX}px;top:${e.clientY}px;color:#ffe1ef;font-size:23px;text-shadow:0 0 14px #ff69ad;animation:tapGlow .8s ease-out forwards`;document.body.appendChild(s);setTimeout(()=>s.remove(),850)});
+ const style=document.createElement('style');style.textContent='@keyframes tapGlow{to{transform:translateY(-35px) scale(1.8);opacity:0}}';document.head.appendChild(style);
 })();
 </script>
 </body>
