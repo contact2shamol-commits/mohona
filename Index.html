@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#351044">
+<title>MOHONA ❤️ Forever Love</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--pink:#ff69b4;--purple:#a56bff}
+body{min-height:100vh;min-height:100svh;width:100%;overflow:hidden;font-family:Arial,sans-serif;color:white;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 15% 15%,#ff9ed3,transparent 42%),radial-gradient(ellipse at 85% 15%,#aa8cff,transparent 45%),radial-gradient(ellipse at 50% 100%,#ff68b2,transparent 50%),linear-gradient(135deg,#190a39,#54266d,#a33f88);transition:background 1s ease}
+body.theme-blue{background:radial-gradient(ellipse at 15% 15%,#78d8ff,transparent 45%),radial-gradient(ellipse at 85% 20%,#827eff,transparent 45%),radial-gradient(ellipse at 50% 100%,#4c72dc,transparent 55%),linear-gradient(135deg,#081c4b,#344f9e,#6653ae)}
+body.theme-red{background:radial-gradient(ellipse at 15% 15%,#ff9a9a,transparent 45%),radial-gradient(ellipse at 85% 20%,#ff69a9,transparent 45%),radial-gradient(ellipse at 50% 100%,#ff3e66,transparent 55%),linear-gradient(135deg,#350619,#9d164e,#e34b79)}
+body.theme-gold{background:radial-gradient(ellipse at 15% 15%,#fff0a6,transparent 45%),radial-gradient(ellipse at 85% 20%,#ffc77d,transparent 45%),radial-gradient(ellipse at 50% 100%,#eaa05c,transparent 55%),linear-gradient(135deg,#39200b,#95602c,#d38c55)}
+.aurora{position:fixed;inset:-60%;z-index:0;pointer-events:none;background:conic-gradient(transparent,rgba(255,255,255,.12),rgba(255,80,190,.25),transparent,rgba(130,110,255,.25),transparent);filter:blur(80px);animation:aurora 25s linear infinite}
+@keyframes aurora{to{transform:rotate(360deg)}}
+#stars{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.star{position:absolute;border-radius:50%;background:white;box-shadow:0 0 7px white,0 0 16px #ffb8e1;animation:twinkle var(--speed) ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.15;transform:scale(.5)}to{opacity:1;transform:scale(1.6)}}
+#floating{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:2}
+.floating-heart{position:absolute;bottom:-60px;color:#ffd0ec;font-size:var(--size);text-shadow:0 0 12px #ff1493,0 0 25px #ff69b4;animation:floatUp var(--duration) linear infinite;animation-delay:var(--delay)}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0deg) scale(.5);opacity:0}15%{opacity:.9}85%{opacity:.6}100%{transform:translateY(-120vh) rotate(360deg) scale(1.4);opacity:0}}
+.main{position:relative;z-index:3;width:min(100vw,760px);height:min(78vh,760px);height:min(78svh,760px);display:flex;align-items:center;justify-content:center}
+canvas{width:100%;height:100%;display:block;overflow:visible;touch-action:manipulation}
+.name{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(30px,9vw,68px);font-weight:900;letter-spacing:5px;white-space:nowrap;color:#fff0f8;text-shadow:0 0 5px white,0 0 12px #ff69b4,0 0 25px #ff1493,0 0 45px #ff1493,0 0 75px #ff69b4;animation:heartbeat 1.5s ease-in-out infinite;z-index:5;pointer-events:none}
+@keyframes heartbeat{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.12)}}
+.top-title{position:fixed;top:18px;left:0;width:100%;text-align:center;z-index:8;font-size:clamp(14px,4vw,20px);font-weight:bold;letter-spacing:3px;color:#fff;text-shadow:0 0 15px #ff69b4}
+.message{position:fixed;bottom:116px;width:100%;text-align:center;font-size:clamp(12px,3.5vw,17px);letter-spacing:2px;color:white;text-shadow:0 0 15px #ff1493;z-index:6}
+.controls{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);z-index:20;width:min(95%,590px);padding:12px;border:1px solid rgba(255,255,255,.35);border-radius:22px;background:rgba(255,255,255,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 35px rgba(0,0,0,.2)}
+.control-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.control-btn{border:1px solid rgba(255,255,255,.3);border-radius:13px;padding:10px 3px;min-height:58px;background:rgba(255,255,255,.15);color:white;font-size:11px;font-weight:bold;cursor:pointer;transition:.25s}
+.control-btn span{display:block;font-size:21px;margin-bottom:4px}
+.control-btn:active{transform:scale(.92)}
+.control-btn.active{background:rgba(255,105,180,.42);border-color:#ffc0e0}
+.speed-control{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;color:white}
+.speed-control input{width:65%;accent-color:#ff83c4}
+.popup-overlay{display:none;position:fixed;inset:0;z-index:50;background:rgba(15,0,25,.65);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px}
+.popup-overlay.show{display:flex}
+.popup{width:min(100%,370px);padding:30px 20px;text-align:center;border:1px solid rgba(255,255,255,.5);border-radius:25px;background:linear-gradient(145deg,#a33c87,#563b9b);box-shadow:0 0 40px rgba(255,80,190,.4);animation:popupIn .35s ease}
+@keyframes popupIn{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.popup h2{color:#fff;margin-bottom:15px;text-shadow:0 0 15px #ff69b4}
+.popup p{line-height:1.7;font-size:15px}
+.close-btn{margin-top:20px;border:none;padding:12px 28px;border-radius:30px;color:white;font-weight:bold;background:#ff4ba6;cursor:pointer}
+@media(max-width:480px){.main{width:100vw;height:68svh}.name{font-size:clamp(29px,8.5vw,42px);letter-spacing:3px}.top-title{top:14px}.message{bottom:157px;font-size:11px}.controls{bottom:9px;padding:9px;border-radius:18px}.control-grid{gap:6px}.control-btn{min-height:52px;font-size:10px;padding:7px 2px}.control-btn span{font-size:19px}.speed-control{font-size:11px}}
+@media(max-height:550px) and (orientation:landscape){.main{width:65vw;height:75svh}.top-title{top:5px}.message{bottom:75px}.controls{width:230px;bottom:10px;left:auto;right:10px;transform:none}.control-grid{grid-template-columns:repeat(2,1fr)}}
+body.paused .aurora,body.paused .star,body.paused .floating-heart,body.paused .name{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<div id="stars"></div>
+<div id="floating"></div>
+<div class="top-title">❤️ FOREVER LOVE ❤️</div>
+<div class="main">
+  <canvas id="loveCanvas"></canvas>
+  <div class="name">MOHONA</div>
+</div>
+<div class="message">♥ YOU ARE MY SPECIAL ONE ♥</div>
+<div class="controls">
+  <div class="control-grid">
+    <button class="control-btn active" id="playBtn"><span id="playIcon">⏸️</span><div id="playLabel">Pause</div></button>
+    <button class="control-btn active" id="starBtn"><span>✨</span>Stars</button>
+    <button class="control-btn active" id="heartBtn"><span>💗</span>Hearts</button>
+    <button class="control-btn" id="themeBtn"><span>🎨</span>Theme</button>
+    <button class="control-btn" id="fullBtn"><span>⛶</span>Fullscreen</button>
+    <button class="control-btn" id="shotBtn"><span>📸</span>Screenshot</button>
+    <button class="control-btn" id="loveBtn"><span>💌</span>Love Letter</button>
+    <button class="control-btn" id="resetBtn"><span>🔄</span>Reset</button>
+  </div>
+  <div class="speed-control">
+    <span>⚡ Speed</span>
+    <input type="range" id="speed" min="0" max="3" step=".1" value="1">
+    <span id="speedValue">1x</span>
+  </div>
+</div>
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <h2>💌 Dear MOHONA ❤️</h2>
+    <p>তুমি আমার কাছে অনেক স্পেশাল।<br>তোমার হাসি আমার আনন্দ।<br>তোমার জন্যই এই ছোট্ট ভালোবাসার পৃথিবী।<br><br>তুমি থেকো আমার প্রতিটি গল্পের মাঝে।<br>Forever & Always! ❤️</p>
+    <button class="close-btn" id="closePopup">Close ❤️</button>
+  </div>
+</div>
+<script>
+const canvas=document.getElementById("loveCanvas");
+const ctx=canvas.getContext("2d");
+const starBox=document.getElementById("stars");
+const floating=document.getElementById("floating");
+let W=0,H=0,layers=[],time=0,speed=1,paused=false,starsOn=true,heartsOn=true,bursts=[],themeIndex=0;
+const themes=["","theme-blue","theme-red","theme-gold"];
+const LOVE_TEXT="I love you";
+
+function createStars(){
+ starBox.innerHTML="";
+ for(let i=0;i<130;i++){
+  const star=document.createElement("div");
+  star.className="star";
+  const size=Math.random()*3+1;
+  star.style.width=size+"px";star.style.height=size+"px";
+  star.style.left=Math.random()*100+"%";star.style.top=Math.random()*100+"%";
+  star.style.setProperty("--speed",(1+Math.random()*3)+"s");
+  starBox.appendChild(star);
+ }
+}
+function createFloatingHearts(){
+ floating.innerHTML="";
+ for(let i=0;i<25;i++){
+  const h=document.createElement("div");
+  h.className="floating-heart";h.innerHTML=Math.random()>.5?"♥":"♡";
+  h.style.left=Math.random()*100+"%";
+  h.style.setProperty("--size",(12+Math.random()*25)+"px");
+  h.style.setProperty("--duration",(8+Math.random()*12)+"s");
+  h.style.setProperty("--delay",(-Math.random()*20)+"s");
+  floating.appendChild(h);
+ }
+}
+function heart(t){
+ return {x:16*Math.pow(Math.sin(t),3),y:-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))};
+}
+function createPath(scale){
+ const points=[],total=1200;
+ for(let i=0;i<=total;i++){
+  const p=heart(i/total*Math.PI*2);
+  points.push({x:p.x*scale,y:p.y*scale});
+ }
+ return points;
+}
+function distance(a,b){return Math.hypot(b.x-a.x,b.y-a.y)}
+function createLayers(){
+ layers=[];
+ for(let l=0;l<7;l++){
+  const path=createPath(.76+l*.055),distances=[0];
+  for(let i=1;i<path.length;i++)distances.push(distances[i-1]+distance(path[i-1],path[i]));
+  const perimeter=distances[distances.length-1];
+  layers.push({path,distances,perimeter,count:Math.floor(perimeter/3.8),phase:l*.38,speed:.5+l*.08});
+ }
+}
+function getPoint(layer,d){
+ d=((d%layer.perimeter)+layer.perimeter)%layer.perimeter;
+ let low=0,high=layer.distances.length-1;
+ while(low<high){const mid=Math.floor((low+high)/2);if(layer.distances[mid]<d)low=mid+1;else high=mid}
+ const i=Math.max(1,low),a=layer.path[i-1],b=layer.path[i];
+ const segment=layer.distances[i]-layer.distances[i-1];
+ const f=segment===0?0:(d-layer.distances[i-1])/segment;
+ return {x:a.x+(b.x-a.x)*f,y:a.y+(b.y-a.y)*f,angle:Math.atan2(b.y-a.y,b.x-a.x)};
+}
+function drawLove(){
+ const baseScale=Math.min(W,H)/39,pulse=1+Math.sin(time*1.8)*.018;
+ ctx.save();ctx.translate(W/2,H/2);ctx.scale(baseScale*pulse,baseScale*pulse);
+ layers.forEach((layer,index)=>{
+  ctx.font="bold 1.12px Arial";ctx.textAlign="center";ctx.textBaseline="middle";
+  const step=layer.perimeter/layer.count;
+  for(let i=0;i<layer.count;i++){
+   const p=getPoint(layer,i*step+time*layer.speed+layer.phase);
+   const sway=Math.sin(time*1.4+i*.035+index)*.12;
+   ctx.save();
+   ctx.translate(p.x*Math.cos(sway)-p.y*Math.sin(sway),p.y*Math.cos(sway)+p.x*Math.sin(sway));
+   ctx.rotate(p.angle);
+   ctx.globalAlpha=.55+.35*(.5+.5*Math.sin(time+i*.1));
+   ctx.shadowColor="#ff1493";ctx.shadowBlur=9;
+   const gradient=ctx.createLinearGradient(-5,0,5,0);
+   gradient.addColorStop(0,"#ff70b8");gradient.addColorStop(.5,"#fff0f8");gradient.addColorStop(1,"#ff65ad");
+   ctx.fillStyle=gradient;ctx.fillText(LOVE_TEXT,0,0);
+   ctx.restore();
+  }
+ });
+ ctx.restore();
+}
+function createBurst(x,y){
+ for(let i=0;i<18;i++){
+  const angle=Math.random()*Math.PI*2,force=1+Math.random()*3;
+  bursts.push({x,y,vx:Math.cos(angle)*force,vy:Math.sin(angle)*force,life:1,size:8+Math.random()*12});
+ }
+}
+function drawBursts(){
+ bursts.forEach(b=>{
+  b.x+=b.vx;b.y+=b.vy;b.vy+=.025;b.life-=.012;
+  ctx.save();ctx.globalAlpha=Math.max(0,b.life);ctx.font=b.size+"px Arial";
+  ctx.fillStyle="#ffb2dc";ctx.shadowColor="#ff1493";ctx.shadowBlur=15;
+  ctx.fillText("♥",b.x,b.y);ctx.restore();
+ });
+ bursts=bursts.filter(b=>b.life>0);
+}
+canvas.addEventListener("pointerdown",e=>{
+ const rect=canvas.getBoundingClientRect();
+ createBurst((e.clientX-rect.left)*(canvas.width/W),(e.clientY-rect.top)*(canvas.height/H));
+});
+function animate(){
+ requestAnimationFrame(animate);
+ if(!paused)time+=.012*speed;
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ drawLove();drawBursts();
+}
+function resize(){
+ const rect=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
+ W=rect.width;H=rect.height;
+ canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);
+ ctx.setTransform(dpr,0,0,dpr,0,0);createLayers();
+}
+window.addEventListener("resize",resize);
+if(window.ResizeObserver)new ResizeObserver(resize).observe(canvas);
+
+const playBtn=document.getElementById("playBtn");
+playBtn.addEventListener("click",()=>{
+ paused=!paused;document.body.classList.toggle("paused",paused);
+ document.getElementById("playIcon").textContent=paused?"▶️":"⏸️";
+ document.getElementById("playLabel").textContent=paused?"Play":"Pause";
+ playBtn.classList.toggle("active",!paused);
+});
+document.getElementById("starBtn").addEventListener("click",function(){
+ starsOn=!starsOn;starBox.style.display=starsOn?"block":"none";this.classList.toggle("active",starsOn);
+});
+document.getElementById("heartBtn").addEventListener("click",function(){
+ heartsOn=!heartsOn;floating.style.display=heartsOn?"block":"none";this.classList.toggle("active",heartsOn);
+});
+document.getElementById("themeBtn").addEventListener("click",()=>{
+ document.body.classList.remove(...themes.filter(Boolean));
+ themeIndex=(themeIndex+1)%themes.length;
+ if(themes[themeIndex])document.body.classList.add(themes[themeIndex]);
+});
+document.getElementById("fullBtn").addEventListener("click",async()=>{
+ try{
+  if(!document.fullscreenElement)await document.documentElement.requestFullscreen();
+  else await document.exitFullscreen();
+ }catch(e){alert("Fullscreen is not supported on this device.");}
+});
+document.getElementById("shotBtn").addEventListener("click",()=>{
+ const link=document.createElement("a");link.download="MOHONA-LOVE-HEART.png";
+ link.href=canvas.toDataURL("image/png");link.click();
+});
+const popup=document.getElementById("popup");
+document.getElementById("loveBtn").addEventListener("click",()=>popup.classList.add("show"));
+document.getElementById("closePopup").addEventListener("click",()=>popup.classList.remove("show"));
+popup.addEventListener("click",e=>{if(e.target===popup)popup.classList.remove("show")});
+document.getElementById("speed").addEventListener("input",function(){
+ speed=Number(this.value);document.getElementById("speedValue").textContent=speed.toFixed(1)+"x";
+});
+document.getElementById("resetBtn").addEventListener("click",()=>{
+ paused=false;speed=1;themeIndex=0;starsOn=true;heartsOn=true;time=0;bursts=[];
+ document.body.classList.remove("paused","theme-blue","theme-red","theme-gold");
+ starBox.style.display="block";floating.style.display="block";
+ document.getElementById("speed").value=1;document.getElementById("speedValue").textContent="1x";
+ document.getElementById("playIcon").textContent="⏸️";document.getElementById("playLabel").textContent="Pause";
+ document.querySelectorAll(".control-btn").forEach(b=>b.classList.remove("active"));
+ ["playBtn","starBtn","heartBtn"].forEach(id=>document.getElementById(id).classList.add("active"));
+ popup.classList.remove("show");
+});
+createStars();createFloatingHearts();resize();animate();
+</script>
+</body>
+</html>
